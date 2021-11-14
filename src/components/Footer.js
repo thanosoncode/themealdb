@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer>
       <div className="footer">
-        <div>
+        <div className="footer-about">
           2021 TheMealDb <br />
           Proudly build in the UK
         </div>
