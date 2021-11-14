@@ -24,7 +24,6 @@ const MealDetails = () => {
   }, [newId]);
 
   const nextId = () => {
-    console.log(newId);
     return newId < 52982 && setNewId(newId + 1);
   };
   const prevId = () => {
