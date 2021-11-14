@@ -11,11 +11,23 @@ const MealDetails = () => {
   const id = params.id;
   const [newId, setNewId] = useState(Number.parseInt(id));
   const [readMore, setReadMore] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const fetchById = async () => {
-    const response = await fetch(byIdUrl + newId);
-    const data = await response.json();
-    setMeal(data.meals[0]);
+    setLoading(true);
+    try {
+      const response = await fetch(byIdUrl + newId);
+      const data = await response.json();
+      if (data) {
+        setMeal(data.meals[0]);
+        setLoading(false);
+      } else {
+        console.log("something went wrong");
+        setLoading(false);
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   console.log(newId);
@@ -30,7 +42,6 @@ const MealDetails = () => {
     console.log(newId);
     return newId > 52826 && setNewId(newId - 1);
   };
-
   if (!meal) {
     return <Loading />;
   }
@@ -59,6 +70,7 @@ const MealDetails = () => {
     return (
       <>
         <div className="details-content">
+          {loading && <Loading />}
           <section className="details">
             <div className="left">
               <h3>{strMeal}</h3>
