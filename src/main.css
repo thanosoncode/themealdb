@@ -354,15 +354,20 @@ nav {
 
 /* Details */
 
+.details-content {
+  background-color: var(--background);
+}
+
 .details {
   max-width: 1100px;
-  margin: 1rem auto;
+  margin: 0 auto;
   text-align: center;
   color: white;
   display: flex;
   align-items: flex-start;
   justify-content: center;
   gap: 80px;
+  padding-top: 1rem;
 }
 
 .details h3 {
@@ -445,6 +450,9 @@ footer {
 }
 
 /* Api */
+.api-content {
+  background-color: var(--background);
+}
 
 .api {
   text-align: center;
@@ -518,25 +526,27 @@ footer {
   list-style: none;
   background-color: var(--background-darker);
   transition: 0.4s ease;
-  opacity: 0;
-  transform: translateX(100%);
 }
 
 .show {
-  transform: translateX(0);
-  opacity: 1;
+  display: flex;
 }
 
 .nav-links-mobile li {
+  background-color: var(--background-darker);
   width: 100%;
   text-align: center;
   cursor: pointer;
+  letter-spacing: 3px;
 }
 
 .nav-links-mobile li:hover {
   background-color: var(--background);
 }
 
+.nav-links-mobile li a:hover {
+  color: var(--primary-light);
+}
 .nav-links-mobile li a:active {
   color: var(--accent);
 }
@@ -545,9 +555,6 @@ footer {
   color: white;
 }
 
-.visible {
-  overflow: visible;
-}
 @media only screen and (max-width: 1200px) {
   .horizontal-line {
     width: 80%;
@@ -567,6 +574,7 @@ footer {
     justify-content: center;
     align-items: center;
     gap: 0;
+    background-color: var(--background);
   }
 
   .left,

@@ -18,7 +18,10 @@ const Welcome = () => {
             supporting us on Patreon by clicking the link below...
           </p>
           <div className="patreon">
-            <Link to="https://www.patreon.com/thedatadb">
+            <Link
+              to={{ pathname: "https://www.patreon.com/thedatadb" }}
+              target="_blank"
+            >
               <img
                 src="https://www.themealdb.com/images/patreon_logo.png"
                 alt="patreon"
