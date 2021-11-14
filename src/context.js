@@ -23,12 +23,17 @@ export const AppContextProvider = ({ children }) => {
   const [isOpenCategory, setIsOpenCategory] = useState(false);
   const [isOpenAreas, setIsOpenAreas] = useState(false);
   const [openMobile, setOpenMobile] = useState(false);
+  // const [noMatchesFound, setNoMatchesFount] = useState(false);
 
   const fetchMeals = async (e) => {
     e.preventDefault();
     try {
       const response = await fetch(url + searchValue);
       const data = await response.json();
+      console.log(data.meals === null);
+      // if (data.meals === null) {
+      //   setNoMatchesFount(true);
+      // }
       setMeals(data.meals);
     } catch (error) {
       console.log(error.message);

@@ -217,6 +217,11 @@ nav {
   font-size: 0.8rem;
 }
 
+.no-result {
+  color: var(--primary-light);
+  text-align: center;
+}
+
 /* Categories */
 
 .close-section-btn {
@@ -632,17 +637,25 @@ footer {
     width: 100%;
     margin: 0 auto;
   }
+  .categories,
+  .areas-container {
+    padding: 0.1rem;
+  }
+  .categories {
+    gap: 6x;
+  }
   .img-container {
-    width: 300px;
-    height: 300px;
+    width: 370px;
+    height: 370px;
   }
   .selected-category {
-    width: 90%;
+    width: 95%;
   }
   .selected-category-item {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
   }
   .selected-category-item img {
     width: 100%;
@@ -650,6 +663,7 @@ footer {
   }
   .stats {
     font-size: 0.8rem;
+    gap: 5px;
 
     width: 95%;
     margin: 0 auto;
