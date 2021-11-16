@@ -17,13 +17,17 @@ const MealDetails = () => {
     setLoading(true);
     try {
       const response = await fetch(byIdUrl + newId);
-      const data = await response.json();
-      if (data) {
-        setMeal(data.meals[0]);
-        setLoading(false);
+      if (response.status >= 400 && response.status < 600) {
+        console.log(response);
       } else {
-        console.log("something went wrong");
-        setLoading(false);
+        const data = await response.json();
+        if (data) {
+          setMeal(data.meals[0]);
+          setLoading(false);
+        } else {
+          console.log("something went wrong");
+          setLoading(false);
+        }
       }
     } catch (error) {
       console.log(error.message);
