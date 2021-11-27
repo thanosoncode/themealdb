@@ -41,7 +41,7 @@ const MealDetails = () => {
   useEffect(() => {
     const fetchMeal = async () => {
       const response = await fetch(byIdUrl + newId);
-      const data = await response.text();
+      const data = await response.json();
       console.log(data);
       // if (response.status >= 200 && response.status <= 299) {
       //   const data = await response.json();
