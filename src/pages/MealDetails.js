@@ -19,6 +19,7 @@ const MealDetails = () => {
       const response = await fetch(byIdUrl + newId);
       if (response.status >= 400 && response.status < 600) {
         console.log(response);
+        setLoading(false);
       } else {
         const data = await response.json();
         if (data) {
@@ -37,7 +38,7 @@ const MealDetails = () => {
   console.log(newId);
   useEffect(() => {
     fetchById();
-  }, [newId]);
+  }, []);
 
   const nextId = () => {
     return newId < 52982 && setNewId(newId + 1);
