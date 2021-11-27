@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import Loading from "../components/Loading";
 import Footer from "../components/Footer";
-import { mockmeal } from "./mockmeal";
+
 const byIdUrl = "https:www.themealdb.com/api/json/v1/1/lookup.php?i=";
 
 const MealDetails = () => {
@@ -41,16 +41,18 @@ const MealDetails = () => {
   useEffect(() => {
     const fetchMeal = async () => {
       const response = await fetch(byIdUrl + newId);
-      if (response.status >= 200 && response.status <= 299) {
-        const data = await response.json();
-        console.log(data);
-        setMeal(data.meals[0]);
+      const data = await response.text();
+      console.log(data);
+      // if (response.status >= 200 && response.status <= 299) {
+      //   const data = await response.json();
+      //   console.log(data);
+      //   setMeal(data.meals[0]);
 
-        setLoading(false);
-      } else {
-        setLoading(false);
-        throw new Error(response.statusText);
-      }
+      //   setLoading(false);
+      // } else {
+      //   setLoading(false);
+      //   throw new Error(response.statusText);
+      // }
     };
     fetchMeal();
   }, []);
@@ -62,11 +64,11 @@ const MealDetails = () => {
   }, [meal]);
 
   const nextId = () => {
-    // return newId < 52982 && setNewId(newId + 1);
+    return newId < 52982 && setNewId(newId + 1);
   };
   const prevId = () => {
     console.log(newId);
-    // return newId > 52826 && setNewId(newId - 1);
+    return newId > 52826 && setNewId(newId - 1);
   };
 
   if (loading) {
