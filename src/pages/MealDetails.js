@@ -41,18 +41,16 @@ const MealDetails = () => {
   useEffect(() => {
     const fetchMeal = async () => {
       const response = await fetch(byIdUrl + newId);
-      const data = await response.json();
-      console.log(data);
-      // if (response.status >= 200 && response.status <= 299) {
-      //   const data = await response.json();
-      //   console.log(data);
-      //   setMeal(data.meals[0]);
+      if (response.status >= 200 && response.status <= 299) {
+        const data = await response.json();
+        console.log(data);
+        setMeal(data.meals[0]);
 
-      //   setLoading(false);
-      // } else {
-      //   setLoading(false);
-      //   throw new Error(response.statusText);
-      // }
+        setLoading(false);
+      } else {
+        setLoading(false);
+        throw new Error(response.statusText);
+      }
     };
     fetchMeal();
   }, []);
