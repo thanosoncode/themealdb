@@ -11,7 +11,7 @@ const MealDetails = () => {
   const id = params.id;
   const [newId, setNewId] = useState(Number.parseInt(id));
   const [readMore, setReadMore] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const fetchById = async () => {
     setLoading(true);
@@ -49,7 +49,7 @@ const MealDetails = () => {
     console.log(newId);
     return newId > 52826 && setNewId(newId - 1);
   };
-  if (!meal) {
+  if (loading) {
     return <Loading />;
   }
 
