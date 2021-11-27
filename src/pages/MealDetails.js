@@ -15,6 +15,7 @@ const MealDetails = () => {
 
   const fetchById = async () => {
     setLoading(true);
+    console.log(byIdUrl + newId);
     try {
       const response = await fetch(byIdUrl + newId);
       if (response.status >= 400 && response.status < 600) {
@@ -32,13 +33,14 @@ const MealDetails = () => {
       }
     } catch (error) {
       console.log(error.message);
+      setLoading(false);
     }
   };
 
   console.log(newId);
   useEffect(() => {
     fetchById();
-  }, []);
+  }, [newId]);
 
   const nextId = () => {
     return newId < 52982 && setNewId(newId + 1);
